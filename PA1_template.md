@@ -2,7 +2,7 @@
 
 ### Loading and Preprocessing the Data
 
-1. Load the data
+#### Load the data:
 
 
 ```r
@@ -20,13 +20,13 @@ head(df)
 ## 6    NA 2012-10-01       25
 ```
 
-2. Process/transform the data (if necessary) into a format suitable for your analysis.
+#### Process/transform the data (if necessary) into a format suitable for your analysis:
 
-   No preprocessing is necessary at this stage; in later analysis, rows with missing data will be eliminated from the data frame.
+No preprocessing is necessary at this stage; in later analysis, rows with missing data will be eliminated from the data frame.
    
 ### What is the mean total number of steps taken per day?
 
-1. Calculate the total number of steps taken per day.
+#### Calculate the total number of steps taken per day:
 
 The following code shows the steps to compute the total number of steps per day, and it
 omits the rows with NA's.
@@ -57,7 +57,7 @@ head( totsteps )
 ## 6 2012-10-07      11015
 ```
 
-2. Make a histogram of the total number of steps taken each day.
+####  Make a histogram of the total number of steps taken each day:
 
 
 ```r
@@ -69,7 +69,7 @@ hist( totsteps$totalsteps,
 
 ![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png) 
 
-3. Calculate and report the mean and median of the total number of steps taken per day.
+#### Calculate and report the mean and median of the total number of steps taken per day:
 
 
 ```r
@@ -92,7 +92,7 @@ The mean total number of steps taken is 10766.19 and it is very close to the med
 
 ### What is the average daily activity pattern?
 
-1. Make a time series plot of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis).
+#### Make a time series plot of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis):
 
 
 ```r
@@ -109,7 +109,7 @@ plot( avgperint$interval, avgperint$avgsteps, type="l",
 
 ![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png) 
 
-2. Which 5-min interval, on average across all the days in the dataset, contains the maximum number of steps?
+#### Which 5-min interval, on average across all the days in the dataset, contains the maximum number of steps?
 
 
 ```r
@@ -124,7 +124,7 @@ From the time series plot, we can see that the maximum average steps taken occur
 
 ### Imputing missing values
 
-1. Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NA's)
+#### Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NA's):
 
 
 ```r
@@ -144,11 +144,11 @@ summary( df )
 
 From the summary of the dataset, we see that the missing values are found only in the "steps" column of the dataset, and there are 2304 rows with missing values (or NA).
 
-2. Devise a strategy for filling in all the missing values in the dataset.
+#### Devise a strategy for filling in all the missing values in the dataset:
 
 Our strategy is to fill in the missing values with the mean for that 5-min interval.
 
-3. Create a new dataset that is equal to the original dataset but with the missing data filled in.
+#### Create a new dataset that is equal to the original dataset but with the missing data filled in:
 
 
 ```r
@@ -170,7 +170,7 @@ summary( imp_df )
 ##                   NA's   :2304     (Other)   :15840
 ```
 
-4. Make a histogram of the total number of steps taken each day.  Calculate and report the mean and median of the total number of steps taken per day.
+#### Make a histogram of the total number of steps taken each day.  Calculate and report the mean and median of the total number of steps taken per day:
 
 
 ```r
@@ -206,7 +206,7 @@ The new mean of total steps taken each day is 10766.19 and median is 10766.19.  
 
 ### Are there differences in activity patterns between weekdays and weekends?
 
-1. Create a new factor variable in the dataset with two levels - "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.
+#### Create a new factor variable in the dataset with two levels - "weekday" and "weekend" indicating whether a given date is a weekday or weekend day:
 
 We create a new factor named "whichday" as follows:
 
@@ -218,7 +218,7 @@ impdf_newfactor <- imp_df %>%
            "weekend", "weekday") ) )
 ```
 
-2. Make a panel plot containing a time series plot of the 5-minute (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis).
+#### Make a panel plot containing a time series plot of the 5-minute (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis):
 
 
 ```r
